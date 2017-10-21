@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Student by NPM</title>
+    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</head>
+<div th:replace="fragments/fragment :: header"></div>
+<body>
+    <h3 th:text="'ID = ' + ${course.idCourse}">course ID</h3>
+    <h3 th:text="'Nama = ' + ${course.name}">course Name</h3>
+    <h3 th:text="'Credits = ' + ${course.credits}">course CREDITS</h3>
+
+    <h3> Mahasiswa yang mengambil</h3>
+    <ul th:each="student,iterationStatus: ${course.students}">
+        <li th:text="${student.npm} + ' - ' + ${student.name}" >
+                Nama mahasiswa
+        </li>
+    </ul>
+
+</body>
+</html>
+

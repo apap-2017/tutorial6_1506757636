@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View All Students</title>
+        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    </head>
+    <div th:replace="fragments/fragment :: header"></div>
+    <body>
+    <div class="container-fluid">
+        <h1>All Students</h1>
+        <hr/>
+        <div class= "table-responsive">
+            <table id="tableStudent" class="table table-hover" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>NPM</th>
+                    <th>Name</th>
+                    <th>GPA</th>
+                    <th>Cum Laude</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student,iterationStatus: ${students}">
+                    <td th:text="'' + ${iterationStatus.count}">No.</td>
+                    <td th:text="'NPM = ' + ${student.npm}">Student NPM</td>
+                    <td th:text="'Name = ' + ${student.name}">Student Name</td>
+                    <td th:text="'GPA = ' + ${student.gpa}">Student GPA</td>
+                    <td th:text="${student.gpa}>=3.49?'Cum Laude!':'Sangat Memuaskan!'"></td>
+                    <td><a th:href = "'/student/delete/' + ${student.npm}" > Delete Data </a></td>
+                    <td><a th:href = "'/student/update/' + ${student.npm}" > Update Data </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:replace = "fragments/fragment :: footer" ></div>
+    </div>
+    </body>
+        <script>
+            $(document).ready(function(){
+                $('#tableStudent').DataTable();
+            });
+        </script>
+</html>

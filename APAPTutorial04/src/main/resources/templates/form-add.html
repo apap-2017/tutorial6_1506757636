@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Add student</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</head>
+<div th:replace="fragments/fragment :: header"></div>
+<body>
+
+<h1 class="page-header">Problem Editor</h1>
+
+<form action="/student/add/submit" method="get">
+    <div>
+        <label for="npm">NPM</label> <input type="text" name="npm" />
+    </div>
+    <div>
+        <label for="name">Name</label> <input type="text" name="name" />
+    </div>
+    <div>
+        <label for="gpa">GPA</label> <input type="text" name="gpa" />
+    </div>
+
+    <div>
+        <button type="submit" name="action" value="save">Save</button>
+    </div>
+</form>
+
+</body>
+
+</html>
+
+
